@@ -3,7 +3,7 @@ package com.transactions.interactors.usecases;
 import com.transactions.entities.Account;
 import com.transactions.entities.enums.StatusAccount;
 import com.transactions.interactors.dto.CreatedAccountModel;
-import com.transactions.interactors.ports.CreateAccountInputPort;
+import com.transactions.interactors.ports.CreateAccountPort;
 import com.transactions.providers.AccountsProvider;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +16,7 @@ import java.util.UUID;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class CreateAccountUseCase implements CreateAccountInputPort {
+public class CreateAccountUseCase implements CreateAccountPort {
 
     private final AccountsProvider accountsProvider;
 

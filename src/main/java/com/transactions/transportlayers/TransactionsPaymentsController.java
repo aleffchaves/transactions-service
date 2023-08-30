@@ -1,6 +1,6 @@
 package com.transactions.transportlayers;
 
-import com.transactions.interactors.ports.CreateAccountInputPort;
+import com.transactions.interactors.ports.CreateAccountPort;
 import com.transactions.transportlayers.controller.converters.CreateAccountConverter;
 import com.transactions.transportlayers.controller.dto.CreateAccountRequest;
 import com.transactions.transportlayers.controller.dto.CreatedAccountResponse;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class TransactionsPaymentsController {
 
-    private final CreateAccountInputPort createAccount;
+    private final CreateAccountPort createAccount;
 
     @PostMapping("/accounts")
     public ResponseEntity<CreatedAccountResponse> createAccount(@Valid @RequestBody final CreateAccountRequest request) {
