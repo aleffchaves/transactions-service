@@ -12,6 +12,7 @@ public class CreateAccountConverter {
 
     public static CreatedAccountResponse toCreatedAccountResponse(final CreatedAccountModel model) {
         return CreatedAccountResponse.builder()
+                .id(model.getId())
                 .status(StatusAccount.ACTIVE.name())
                 .accountNumber(model.getAccountNumber())
                 .balance(model.getBalance())

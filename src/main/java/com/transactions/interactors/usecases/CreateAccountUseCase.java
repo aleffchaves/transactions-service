@@ -3,7 +3,7 @@ package com.transactions.interactors.usecases;
 import com.transactions.entities.Account;
 import com.transactions.entities.enums.StatusAccount;
 import com.transactions.interactors.dto.CreatedAccountModel;
-import com.transactions.interactors.ports.CreateAccountPort;
+import com.transactions.interactors.ports.CreateAccountUseCasePort;
 import com.transactions.providers.AccountsProvider;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,19 +16,19 @@ import java.util.UUID;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class CreateAccountUseCase implements CreateAccountPort {
+public class CreateAccountUseCase implements CreateAccountUseCasePort {
 
     private final AccountsProvider accountsProvider;
 
     @Override
     public CreatedAccountModel execute(final String documentNumber) {
-        log.info("Starting account creation process");
+        log.info("USE CASE - Starting account creation process - documentNumber: " + documentNumber);
 
         this.checkIfCustomerHasAnAccount(documentNumber);
         final var account = this.buildAccount(documentNumber);
         this.accountsProvider.createAccount(account);
 
-        log.info("Account creation process completed. Account ID: +" + account.getId());
+        log.info("USE CASE - Account creation process completed. Account ID: +" + account.getId());
 
         return this.buildCreatedAccountResponse(account);
     }
@@ -56,6 +56,7 @@ public class CreateAccountUseCase implements CreateAccountPort {
 
     private CreatedAccountModel buildCreatedAccountResponse(final Account account) {
         return CreatedAccountModel.builder()
+                .id(account.getId())
                 .accountNumber(account.getNumber())
                 .balance(account.getBalance())
                 .status(account.getStatus().name())

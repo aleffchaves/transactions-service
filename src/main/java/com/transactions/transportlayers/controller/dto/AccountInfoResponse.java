@@ -7,9 +7,9 @@ import java.math.BigDecimal;
 
 @Data
 @Builder
-public final class CreatedAccountResponse {
-    private final String id;
+public final class AccountInfoResponse {
     private final String status;
+    private final String documentNumber;
     private final String accountNumber;
     private final BigDecimal balance;
 }
