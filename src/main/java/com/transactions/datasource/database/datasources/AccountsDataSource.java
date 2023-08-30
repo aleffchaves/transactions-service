@@ -27,4 +27,15 @@ public class AccountsDataSource implements AccountsProvider {
         final var accountData = AccountConverter.toAccountData(account);
         this.accountRepository.save(accountData);
     }
+
+    @Override
+    public Account getAccountInfo(final String accountId) {
+        log.info("Obtaining account info");
+        return this.accountRepository.findById(accountId)
+                .map(AccountConverter::toAccount)
+                .orElseThrow(() -> {
+                    log.error("account not found: " + accountId);
+                    return new RuntimeException("Doest exists account for account ID: " + accountId);
+                });
+    }
 }
