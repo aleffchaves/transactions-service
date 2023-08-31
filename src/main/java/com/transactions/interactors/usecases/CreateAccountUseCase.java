@@ -1,5 +1,6 @@
 package com.transactions.interactors.usecases;
 
+import com.transactions.configurations.exceptions.CustomerAlreadyHasAccountException;
 import com.transactions.entities.Account;
 import com.transactions.entities.enums.StatusAccount;
 import com.transactions.interactors.dto.CreatedAccountModel;
@@ -35,7 +36,7 @@ public class CreateAccountUseCase implements CreateAccountUseCasePort {
 
     private void checkIfCustomerHasAnAccount(final String documentNumber) {
         if (this.accountsProvider.checkExistsAccountByDocumentNumber(documentNumber)) {
-            throw new RuntimeException("Customer already has an account.");
+            throw new CustomerAlreadyHasAccountException();
         }
     }
 

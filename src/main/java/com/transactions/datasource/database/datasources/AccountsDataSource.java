@@ -1,5 +1,6 @@
 package com.transactions.datasource.database.datasources;
 
+import com.transactions.configurations.exceptions.AccountNotFoundException;
 import com.transactions.datasource.database.converter.AccountConverter;
 import com.transactions.datasource.database.repository.AccountRepository;
 import com.transactions.entities.Account;
@@ -35,7 +36,7 @@ public class AccountsDataSource implements AccountsProvider {
                 .map(AccountConverter::toAccount)
                 .orElseThrow(() -> {
                     log.error("account not found: " + accountId);
-                    return new RuntimeException("Doest exists account for account ID: " + accountId);
+                    return new AccountNotFoundException();
                 });
     }
 }
