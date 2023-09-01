@@ -1,4 +1,4 @@
-package com.transactions.transportlayers.controller.dto;
+package com.transactions.transportlayers.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;

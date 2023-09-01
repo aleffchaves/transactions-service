@@ -1,7 +1,7 @@
-package com.transactions.transportlayers.controller.converters;
+package com.transactions.transportlayers.converters;
 
 import com.transactions.interactors.dto.AccountInfoModel;
-import com.transactions.transportlayers.controller.dto.AccountInfoResponse;
+import com.transactions.transportlayers.dto.AccountInfoResponse;
 
 public class AccountInfoConverter {
 

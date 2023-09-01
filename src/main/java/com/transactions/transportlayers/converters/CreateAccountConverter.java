@@ -1,8 +1,8 @@
-package com.transactions.transportlayers.controller.converters;
+package com.transactions.transportlayers.converters;
 
 import com.transactions.entities.enums.StatusAccount;
 import com.transactions.interactors.dto.CreatedAccountModel;
-import com.transactions.transportlayers.controller.dto.CreatedAccountResponse;
+import com.transactions.transportlayers.dto.CreatedAccountResponse;
 
 public class CreateAccountConverter {
 
