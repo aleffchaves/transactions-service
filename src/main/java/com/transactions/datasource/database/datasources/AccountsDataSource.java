@@ -23,6 +23,14 @@ public class AccountsDataSource implements AccountsProvider {
     }
 
     @Override
+    public Account findAccountById(final String accountId) {
+        log.info("DATA SOURCE - Searching account - account ID: " + accountId);
+        return this.accountRepository.findById(accountId)
+                .map(AccountConverter::toAccount)
+                .orElseThrow(AccountNotFoundException::new);
+    }
+
+    @Override
     public void createAccount(final Account account) {
         log.info("Saving account");
         final var accountData = AccountConverter.toAccountData(account);
