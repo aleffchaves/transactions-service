@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 @Data
 @Builder
 public final class AccountInfoResponse {
+    private final String id;
     private final String status;
     private final String documentNumber;
     private final String accountNumber;

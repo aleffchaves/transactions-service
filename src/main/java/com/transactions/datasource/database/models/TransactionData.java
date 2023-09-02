@@ -2,6 +2,8 @@ package com.transactions.datasource.database.models;
 
 import com.transactions.entities.enums.OperationType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -33,6 +35,7 @@ public class TransactionData {
 
     private BigDecimal amount;
 
+    @Enumerated(EnumType.STRING)
     private OperationType type;
 
     private LocalDateTime eventDate;

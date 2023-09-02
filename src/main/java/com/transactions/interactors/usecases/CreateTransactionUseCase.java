@@ -2,6 +2,7 @@ package com.transactions.interactors.usecases;
 
 import com.transactions.entities.Account;
 import com.transactions.entities.Transaction;
+import com.transactions.entities.enums.OperationType;
 import com.transactions.interactors.dto.CreateTransactionModel;
 import com.transactions.interactors.dto.CreatedTransactionModel;
 import com.transactions.interactors.ports.CreateTransactionUseCasePort;
@@ -11,7 +12,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.UUID;
+
+import static com.transactions.entities.enums.OperationType.fromValue;
 
 @Slf4j
 @Service
@@ -30,7 +34,7 @@ public class CreateTransactionUseCase implements CreateTransactionUseCasePort {
         final var transaction = this.buildTransaction(model, account);
         this.transactionsProvider.createTransaction(transaction);
 
-        log.info("USE CASE - transaction has ben created - TRANSACTION ID: " + transaction.getId());
+        log.info("USE CASE - execute - transaction has ben created - TRANSACTION ID: " + transaction.getId());
         return this.buildCreatedTransactionModel(transaction);
     }
 
@@ -43,9 +47,14 @@ public class CreateTransactionUseCase implements CreateTransactionUseCasePort {
     private Transaction buildTransaction(final CreateTransactionModel model, final Account account) {
         return Transaction.builder()
                 .id(UUID.randomUUID().toString())
-                .type(model.getType())
-                .amount(model.getAmount())
+                .type(fromValue(model.getType().getValue()))
+                .amount(this.applyNegativeInOperationValue(model))
                 .account(account)
                 .build();
+    }
+
+    private BigDecimal applyNegativeInOperationValue(final CreateTransactionModel model) {
+        return model.getType().getValue() != OperationType.PAYMENT.getValue() ?
+                model.getAmount().negate() : model.getAmount();
     }
 }

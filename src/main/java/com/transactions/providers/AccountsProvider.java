@@ -9,6 +9,4 @@ public interface AccountsProvider {
     Account findAccountById(final String accountId);
 
     void createAccount(final Account documentNumber);
-
-    Account getAccountInfo(final String accountId);
 }

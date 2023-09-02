@@ -13,4 +13,13 @@ public enum OperationType {
     PAYMENT(4);
 
     private final int value;
+
+    public static OperationType fromValue(final int value) {
+        for (final var type : OperationType.values()) {
+            if (type.getValue() == value) {
+                return type;
+            }
+        }
+        throw new IllegalArgumentException("Invalid OperationType value: " + value);
+    }
 }

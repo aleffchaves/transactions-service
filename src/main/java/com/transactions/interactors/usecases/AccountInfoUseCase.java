@@ -17,15 +17,16 @@ public class AccountInfoUseCase implements AccountInfoUseCasePort {
 
     @Override
     public AccountInfoModel execute(final String accountId) {
-        log.info("USE CASE - execute - recovering account info - ID: " + accountId);
+        log.info("USE CASE - execute - recovering account info - ACCOUNT ID: " + accountId);
 
-        final var account = this.accountsProvider.getAccountInfo(accountId);
+        final var account = this.accountsProvider.findAccountById(accountId);
 
         return this.buildAccountInfoModel(account);
     }
 
     private AccountInfoModel buildAccountInfoModel(final Account account) {
         return AccountInfoModel.builder()
+                .id(account.getId())
                 .status(account.getStatus().name())
                 .documentNumber(account.getDocumentNumber())
                 .balance(account.getBalance())

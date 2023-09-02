@@ -29,13 +29,14 @@ public class CreateAccountUseCase implements CreateAccountUseCasePort {
         final var account = this.buildAccount(documentNumber);
         this.accountsProvider.createAccount(account);
 
-        log.info("USE CASE - Account creation process completed. ACCOUNT ID: +" + account.getId());
+        log.info("USE CASE - execute - Account creation process completed. ACCOUNT ID: +" + account.getId());
 
         return this.buildCreatedAccountResponse(account);
     }
 
     private void checkIfCustomerHasAnAccount(final String documentNumber) {
         if (this.accountsProvider.checkExistsAccountByDocumentNumber(documentNumber)) {
+            log.error("USE CASE - execute - Something went wrong during creation account process. - ERROR");
             throw new CustomerAlreadyHasAccountException();
         }
     }

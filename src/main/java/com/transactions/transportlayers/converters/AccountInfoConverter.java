@@ -11,6 +11,7 @@ public class AccountInfoConverter {
 
     public static AccountInfoResponse toAccountInfoResponse(final AccountInfoModel model) {
         return AccountInfoResponse.builder()
+                .id(model.getId())
                 .status(model.getStatus())
                 .accountNumber(model.getAccountNumber())
                 .documentNumber(model.getDocumentNumber())
