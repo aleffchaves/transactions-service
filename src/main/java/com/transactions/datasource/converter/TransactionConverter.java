@@ -1,7 +1,7 @@
-package com.transactions.datasource.database.converter;
+package com.transactions.datasource.converter;
 
-import com.transactions.datasource.database.models.AccountData;
-import com.transactions.datasource.database.models.TransactionData;
+import com.transactions.datasource.models.AccountData;
+import com.transactions.datasource.models.TransactionData;
 import com.transactions.entities.Account;
 import com.transactions.entities.Transaction;
 

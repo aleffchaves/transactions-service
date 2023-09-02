@@ -23,13 +23,13 @@ public class CreateAccountUseCase implements CreateAccountUseCasePort {
 
     @Override
     public CreatedAccountModel execute(final String documentNumber) {
-        log.info("USE CASE - execute - starting account creation process - DOCUMENT NUMBER: " + documentNumber);
+        log.info("USE CASE - execute - starting account creation process - DOCUMENT NUMBER: {}", documentNumber);
 
         this.checkIfCustomerHasAnAccount(documentNumber);
         final var account = this.buildAccount(documentNumber);
         this.accountsProvider.createAccount(account);
 
-        log.info("USE CASE - execute - Account creation process completed. ACCOUNT ID: +" + account.getId());
+        log.info("USE CASE - execute - Account creation process completed. ACCOUNT ID: {}", account.getId());
 
         return this.buildCreatedAccountResponse(account);
     }
@@ -50,7 +50,7 @@ public class CreateAccountUseCase implements CreateAccountUseCasePort {
         return Account.builder()
                 .id(UUID.randomUUID().toString())
                 .number(this.accountNumberGenerate())
-                .balance(BigDecimal.TEN)
+                .balance(BigDecimal.valueOf(1000))
                 .status(StatusAccount.ACTIVE)
                 .documentNumber(documentNumber)
                 .build();

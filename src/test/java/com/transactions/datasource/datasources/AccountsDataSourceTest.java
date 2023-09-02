@@ -1,8 +1,8 @@
-package com.transactions.datasource.database.datasources;
+package com.transactions.datasource.datasources;
 
 import com.transactions.configurations.exceptions.AccountNotFoundException;
-import com.transactions.datasource.database.models.AccountData;
-import com.transactions.datasource.database.repository.AccountRepository;
+import com.transactions.datasource.models.AccountData;
+import com.transactions.datasource.repository.AccountRepository;
 import com.transactions.fixture.accounts.AccountDataFixture;
 import com.transactions.fixture.accounts.AccountFixture;
 import org.junit.jupiter.api.Assertions;

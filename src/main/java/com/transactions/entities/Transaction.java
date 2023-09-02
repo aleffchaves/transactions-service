@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Transaction {
 
+    @EqualsAndHashCode.Include
     private String id;
     private Account account;
     private BigDecimal amount;

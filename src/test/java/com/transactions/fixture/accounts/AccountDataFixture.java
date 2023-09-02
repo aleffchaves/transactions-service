@@ -1,6 +1,6 @@
 package com.transactions.fixture.accounts;
 
-import com.transactions.datasource.database.models.AccountData;
+import com.transactions.datasource.models.AccountData;
 import com.transactions.entities.enums.StatusAccount;
 import lombok.experimental.UtilityClass;
 

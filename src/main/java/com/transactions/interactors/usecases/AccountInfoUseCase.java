@@ -17,7 +17,7 @@ public class AccountInfoUseCase implements AccountInfoUseCasePort {
 
     @Override
     public AccountInfoModel execute(final String accountId) {
-        log.info("USE CASE - execute - recovering account info - ACCOUNT ID: " + accountId);
+        log.info("USE CASE - execute - recovering account info - ACCOUNT ID: {}", accountId);
 
         final var account = this.accountsProvider.findAccountById(accountId);
 

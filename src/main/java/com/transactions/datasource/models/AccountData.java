@@ -1,4 +1,4 @@
-package com.transactions.datasource.database.models;
+package com.transactions.datasource.models;
 
 import com.transactions.entities.enums.StatusAccount;
 import jakarta.persistence.Entity;

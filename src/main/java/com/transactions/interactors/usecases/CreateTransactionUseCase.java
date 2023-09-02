@@ -27,15 +27,24 @@ public class CreateTransactionUseCase implements CreateTransactionUseCasePort {
 
     @Override
     public CreatedTransactionModel execute(final CreateTransactionModel model) {
-
-        log.info("USE CASE - execute - creating a transaction - ACCOUNT ID: " + model.getAccountId());
+        log.info("USE CASE - execute - creating a transaction - ACCOUNT ID: {}", model.getAccountId());
 
         final var account = this.accountsProvider.findAccountById(model.getAccountId().toString());
         final var transaction = this.buildTransaction(model, account);
+        this.updateBalanceAccount(account, model);
         this.transactionsProvider.createTransaction(transaction);
 
-        log.info("USE CASE - execute - transaction has ben created - TRANSACTION ID: " + transaction.getId());
+        log.info("USE CASE - execute - creating a transaction - ACCOUNT ID: {}", model.getAccountId());
+
         return this.buildCreatedTransactionModel(transaction);
+    }
+
+    private void updateBalanceAccount(final Account account, final CreateTransactionModel transaction) {
+        if (OperationType.PAYMENT.equals(transaction.getType())) {
+            account.setBalance(account.getBalance().add(transaction.getAmount()));
+        } else {
+            account.setBalance(account.getBalance().subtract(transaction.getAmount()));
+        }
     }
 
     private CreatedTransactionModel buildCreatedTransactionModel(final Transaction transaction) {

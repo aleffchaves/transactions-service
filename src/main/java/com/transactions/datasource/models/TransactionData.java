@@ -1,6 +1,7 @@
-package com.transactions.datasource.database.models;
+package com.transactions.datasource.models;
 
 import com.transactions.entities.enums.OperationType;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -29,7 +30,7 @@ public class TransactionData {
     @Id
     private String id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "account_id")
     private AccountData account;
 

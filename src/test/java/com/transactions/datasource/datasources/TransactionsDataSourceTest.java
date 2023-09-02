@@ -1,7 +1,7 @@
-package com.transactions.datasource.database.datasources;
+package com.transactions.datasource.datasources;
 
-import com.transactions.datasource.database.models.TransactionData;
-import com.transactions.datasource.database.repository.TransactionRepository;
+import com.transactions.datasource.models.TransactionData;
+import com.transactions.datasource.repository.TransactionRepository;
 import com.transactions.entities.Transaction;
 import com.transactions.fixture.transactions.TransactionFixture;
 import org.junit.jupiter.api.Assertions;

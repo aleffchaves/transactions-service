@@ -34,7 +34,7 @@ public class AccountsController {
     @PostMapping
     @Operation(summary = "Create an account", description = "This operation creates an account.")
     public ResponseEntity<CreatedAccountResponse> createAccount(@Valid @RequestBody final CreateAccountRequest request) {
-        log.info("TRANSPORT LAYER  - createAccount - received create account request.");
+        log.info("TRANSPORT LAYER  - createAccount - received create account request. - DOCUMENT_NUMBER: {}", request.getDocumentNumber());
 
         final var responseModel = this.createAccount.execute(request.getDocumentNumber());
 

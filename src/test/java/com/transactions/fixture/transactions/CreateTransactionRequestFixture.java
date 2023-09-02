@@ -10,14 +10,6 @@ import java.util.UUID;
 @UtilityClass
 public class CreateTransactionRequestFixture {
 
-    public static CreateTransactionRequest createTransactionRequestWithOperationType(final OperationType type) {
-        return CreateTransactionRequest.builder()
-                .accountId(UUID.fromString("3651c35e-c768-40d0-9216-aff6681aa430"))
-                .amount(BigDecimal.TEN)
-                .type(type)
-                .build();
-    }
-
     public static CreateTransactionRequest createTransactionRequest() {
         return CreateTransactionRequest.builder()
                 .accountId(UUID.fromString("3651c35e-c768-40d0-9216-aff6681aa430"))

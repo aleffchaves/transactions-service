@@ -1,8 +1,8 @@
-package com.transactions.datasource.database.datasources;
+package com.transactions.datasource.datasources;
 
 import com.transactions.configurations.exceptions.AccountNotFoundException;
-import com.transactions.datasource.database.converter.AccountConverter;
-import com.transactions.datasource.database.repository.AccountRepository;
+import com.transactions.datasource.converter.AccountConverter;
+import com.transactions.datasource.repository.AccountRepository;
 import com.transactions.entities.Account;
 import com.transactions.providers.AccountsProvider;
 import lombok.RequiredArgsConstructor;
@@ -18,13 +18,13 @@ public class AccountsDataSource implements AccountsProvider {
 
     @Override
     public boolean checkExistsAccountByDocumentNumber(final String documentNumber) {
-        log.info("Searching account for document: " + documentNumber);
+        log.info("DATA SOURCE - checkExistsAccountByDocumentNumber - DOCUMENT NUMBER: {}", documentNumber);
         return this.accountRepository.existsByDocumentNumber(documentNumber);
     }
 
     @Override
     public Account findAccountById(final String accountId) {
-        log.info("DATA SOURCE - Searching account - ACCOUNT ID: " + accountId);
+        log.info("DATA SOURCE - findAccountById - ACCOUNT ID: {}", accountId);
         return this.accountRepository.findById(accountId)
                 .map(AccountConverter::toAccount)
                 .orElseThrow(AccountNotFoundException::new);
@@ -32,7 +32,7 @@ public class AccountsDataSource implements AccountsProvider {
 
     @Override
     public void createAccount(final Account account) {
-        log.info("DATA SOURCE - Saving account - ACCOUNT ID: " + account.getId());
+        log.info("DATA SOURCE - createAccount - ACCOUNT ID: {}", account.getId());
         final var accountData = AccountConverter.toAccountData(account);
         this.accountRepository.save(accountData);
     }
