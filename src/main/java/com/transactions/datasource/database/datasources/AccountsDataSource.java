@@ -24,7 +24,7 @@ public class AccountsDataSource implements AccountsProvider {
 
     @Override
     public Account findAccountById(final String accountId) {
-        log.info("DATA SOURCE - Searching account - account ID: " + accountId);
+        log.info("DATA SOURCE - Searching account - ACCOUNT ID: " + accountId);
         return this.accountRepository.findById(accountId)
                 .map(AccountConverter::toAccount)
                 .orElseThrow(AccountNotFoundException::new);
@@ -32,19 +32,8 @@ public class AccountsDataSource implements AccountsProvider {
 
     @Override
     public void createAccount(final Account account) {
-        log.info("Saving account");
+        log.info("DATA SOURCE - Saving account - ACCOUNT ID: " + account.getId());
         final var accountData = AccountConverter.toAccountData(account);
         this.accountRepository.save(accountData);
-    }
-
-    @Override
-    public Account getAccountInfo(final String accountId) {
-        log.info("Obtaining account info");
-        return this.accountRepository.findById(accountId)
-                .map(AccountConverter::toAccount)
-                .orElseThrow(() -> {
-                    log.error("account not found: " + accountId);
-                    return new AccountNotFoundException();
-                });
     }
 }
