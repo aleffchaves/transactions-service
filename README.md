@@ -29,16 +29,12 @@ Cada transação é registrada na conta do usuário correspondente e atualiza o 
 &#8594; Estamos disponibilizando uma collection contendo as operações disponíveis nas APIS presentes na aplicação, podendo ser fácilmente importada no POSTMAN.
 
 
-
-
-
-
-
 ## Excução do Projeto
 
-Aqui estão as etapas para configurar e executar o projeto:
+Para realizar a execução do projeto basta realizar os passos abaixo:
 
-1. **Pré-requisitos**: 
-
-2. **Clone o Repositório**: 
-
+   - 1. __CLONAR O REPOSITÓRIO__: https://github.com/aleffchaves/transactions-service.git
+   - 2. __DOCKER__: Ter o docker instalado
+   - 3. __EXECUTAR O COMANDO:__  docker run -p 8080:8080 transactions-service
+    
+   - __OBS:__ Caso não tenha o docker instalado a aplicação pode ser executada normalmente de como um app Spring qualquer
