@@ -1,0 +1,6 @@
+version: 1.0
+
+server:
+  servlet:
+    context-path: /transactions
+
