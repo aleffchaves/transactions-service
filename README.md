@@ -34,6 +34,7 @@ Cada transação é registrada na conta do usuário correspondente e atualiza o 
 Para realizar a execução do projeto basta realizar os passos abaixo:
 
    - 1. __CLONAR O REPOSITÓRIO__: https://github.com/aleffchaves/transactions-service.git
-   - 3. __EXECUTAR O COMANDO:__  docker-compose up 
-    
+   - 3. __EXECUTAR O COMANDO:__  docker-compose up
+     4. __SWAGGER__: http://localhost:8080/transactions/swagger-ui/index.html
+        
    - __OBS:__ Caso não tenha o docker instalado a aplicação pode ser executada normalmente de como um app Spring qualquer
