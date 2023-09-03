@@ -34,9 +34,10 @@ Para executar o projeto, siga os passos abaixo:
 
 1. **CLONE O REPOSITÓRIO**: [https://github.com/aleffchaves/transactions-service.git](https://github.com/aleffchaves/transactions-service.git)
 
-2. **EXECUTE O COMANDO**: `docker-compose up`
+2. **EXECUTE O COMANDO**: `docker build -t transactions-app .`
+3. **EXECUTE O COMANDO**: `docker-compose up`
 
-3. **ACESSO AO SWAGGER**: [http://localhost:8080/transactions/swagger-ui/index.html](http://localhost:8080/transactions/swagger-ui/index.html)
+4. **ACESSO AO SWAGGER**: [http://localhost:8080/transactions/swagger-ui/index.html](http://localhost:8080/transactions/swagger-ui/index.html)
 
 Observações:
 
