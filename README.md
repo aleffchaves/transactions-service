@@ -1,40 +1,44 @@
-# DESAFIO PISMO -  ROTINAS TRANSACIONAIS
+# DESAFIO PISMO - ROTINAS TRANSACIONAIS
 
 ## Descrição do Sistema
 
-O sistema foi desenvolvido com o intuido de viabilizar a gestão de rotinas transacionais, nesta versão estamos contemplando as seguintes funcionalidades:
+Este sistema foi desenvolvido com o propósito de facilitar a gestão de rotinas transacionais. Nesta versão, oferecemos as seguintes funcionalidades:
 
-###  <span style="color: green;">&#10004;</span>  Criação de Conta
+### ✔️ Criação de Conta
 
-Os usuários podem criar uma conta no sistema, fornecendo o núumero do CPF.
+Os usuários podem criar uma conta no sistema fornecendo seu número de CPF.
 
+### ✔️ Consulta de Informações de uma Conta (Para executar esta operação é necessário realizar a criação de uma conta)
 
-###  <span style="color: green;">&#10004;</span> Consultar Informações de uma Conta
+Os usuários podem consultar informações de uma conta específica, bastando informar o ID da conta.
 
-Os usuários podem consultar as informações de uma conta específica, para isso é necessário que o cliente informe apenas o ID da conta.
-
-###  <span style="color: green;">&#10004;</span> Realizar Transações
+### ✔️ Realização de Transações (Para executar esta operação é necessário realizar a criação de uma conta)
 
 O sistema suporta quatro tipos de transações:
 
-- __CASH_PURCHASE__: Compra à vista.
-- __INSTALLMENT_PURCHASE__: Compra parcelada.
-- __WITHDRAWAL__: Saque.
-- __PAYMENT__: Pagamento.
+- **CASH_PURCHASE**: Compra à vista.
+- **INSTALLMENT_PURCHASE**: Compra parcelada.
+- **WITHDRAWAL**: Saque.
+- **PAYMENT**: Pagamento.
 
 Cada transação é registrada na conta do usuário correspondente e atualiza o saldo da conta de acordo com o tipo de transação.
 
-## __Informações__ __importantes__ ##
+## Informações Importantes
 
-&#8594; Estamos disponibilizando uma collection contendo as operações disponíveis nas APIS presentes na aplicação, podendo ser fácilmente importada no POSTMAN.
+➡️ Disponibilizamos uma collection das APIs contendo todas as operações disponíveis na aplicação. Essa collection está disponível na raiz do projeto.
+- Fique a vontade para explora-la 
 
+## Execução do Projeto
 
-## Excução do Projeto
+Para executar o projeto, siga os passos abaixo:
 
-Para realizar a execução do projeto basta realizar os passos abaixo:
+1. **CLONE O REPOSITÓRIO**: [https://github.com/aleffchaves/transactions-service.git](https://github.com/aleffchaves/transactions-service.git)
 
-   - 1. __CLONAR O REPOSITÓRIO__: https://github.com/aleffchaves/transactions-service.git
-   - 3. __EXECUTAR O COMANDO:__  docker-compose up
-     4. __SWAGGER__: http://localhost:8080/transactions/swagger-ui/index.html
-        
-   - __OBS:__ Caso não tenha o docker instalado a aplicação pode ser executada normalmente de como um app Spring qualquer
+2. **EXECUTE O COMANDO**: `docker-compose up`
+
+3. **ACESSO AO SWAGGER**: [http://localhost:8080/transactions/swagger-ui/index.html](http://localhost:8080/transactions/swagger-ui/index.html)
+
+Observações:
+
+- Ao executar o `docker-compose`, um banco de dados MySQL será inicializado automaticamente.
+- Caso você não tenha o Docker instalado, a aplicação pode ser executada como um aplicativo Spring convencional.
