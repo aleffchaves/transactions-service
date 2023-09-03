@@ -34,6 +34,6 @@ Cada transação é registrada na conta do usuário correspondente e atualiza o 
 Para realizar a execução do projeto basta realizar os passos abaixo:
 
    - 1. __CLONAR O REPOSITÓRIO__: https://github.com/aleffchaves/transactions-service.git
-   - 3. __EXECUTAR O COMANDO:__  docker run -p 8080:8080 transactions-service
+   - 3. __EXECUTAR O COMANDO:__  docker build -t transactions-service .
     
    - __OBS:__ Caso não tenha o docker instalado a aplicação pode ser executada normalmente de como um app Spring qualquer
