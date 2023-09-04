@@ -4,3 +4,13 @@ server:
   servlet:
     context-path: /transactions
 
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/transactions_db
+    username: user
+    password: 123
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
